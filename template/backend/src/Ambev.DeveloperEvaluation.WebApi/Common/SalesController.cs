@@ -18,7 +18,28 @@ namespace Ambev.DeveloperEvaluation.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<SaleDTO>> GetSale(int id)
+        public IActionResult GetSaleById(Guid id)
+        {
+            // Lógica para recuperar a venda pelo ID
+            var sale = new SaleDTO
+            {
+                Id = id,
+                SaleNumber = "SALE12345",
+                TotalAmount = 250.0m,
+                SaleDate = DateTime.UtcNow,
+                Customer = "John Doe",
+                Items = new List<SaleItemDTO>
+            {
+                new SaleItemDTO { Product = "Product A", Quantity = 2, UnitPrice = 50.0m, Discount = 0.0m },
+                new SaleItemDTO { Product = "Product B", Quantity = 1, UnitPrice = 150.0m, Discount = 0.0m }
+            }
+            };
+
+            return Ok(sale);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SaleDTO>> GetSale(Guid id)
         {
             var sale = await _saleService.GetSaleByIdAsync(id);
             if (sale == null)
@@ -44,7 +65,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSale(int id, SaleDTO saleDto)
+        public async Task<IActionResult> UpdateSale(Guid id, SaleDTO saleDto)
         {
             if (id != saleDto.Id)
             {
@@ -56,7 +77,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSale(int id)
+        public async Task<IActionResult> DeleteSale(Guid id)
         {
             await _saleService.DeleteSaleAsync(id);
             return NoContent();

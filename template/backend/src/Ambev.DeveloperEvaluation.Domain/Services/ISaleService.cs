@@ -9,11 +9,11 @@ namespace Ambev.DeveloperEvaluation.Domain.Services
 {
     public interface ISaleService
     {
-        Task<SaleDTO> GetSaleByIdAsync(int id);
+        Task<SaleDTO> GetSaleByIdAsync(Guid id);
         Task<IEnumerable<SaleDTO>> GetAllSalesAsync();
         Task AddSaleAsync(SaleDTO saleDto);
         Task UpdateSaleAsync(SaleDTO saleDto);
-        Task DeleteSaleAsync(int id);
+        Task DeleteSaleAsync(Guid id);
     }
 
 }

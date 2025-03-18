@@ -10,12 +10,35 @@ public class DefaultContext : DbContext
 {
     public DbSet<User> Users { get; set; }
 
+    public DbSet<Sale> Sales { get; set; }
+
+    public DbSet<SaleItem> SaleItems { get; set; }
+
     public DefaultContext(DbContextOptions<DefaultContext> options) : base(options)
     {
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Sale>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+
+            entity.Property(e => e.SaleNumber)
+                  .IsRequired()
+                  .HasMaxLength(50);
+
+            entity.Property(e => e.TotalAmount)
+                  .IsRequired()
+                  .HasColumnType("decimal(10,2)");
+
+            entity.HasMany(e => e.Items)
+                  .WithOne(i => i.Sale)
+                  .HasForeignKey(i => i.SaleId) // Configura SaleId como chave estrangeira
+                  .IsRequired();
+        });
+
+
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(modelBuilder);
     }

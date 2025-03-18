@@ -22,7 +22,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Services
             _mapper = mapper;
         }
 
-        public async Task<SaleDTO> GetSaleByIdAsync(int id)
+        public async Task<SaleDTO> GetSaleByIdAsync(Guid id)
         {
             var sale = await _saleRepository.GetSaleByIdAsync(id);
             return _mapper.Map<SaleDTO>(sale);
@@ -46,7 +46,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Services
             await _saleRepository.UpdateSaleAsync(sale);
         }
 
-        public async Task DeleteSaleAsync(int id)
+        public async Task DeleteSaleAsync(Guid id)
         {
             await _saleRepository.DeleteSaleAsync(id);
         }
