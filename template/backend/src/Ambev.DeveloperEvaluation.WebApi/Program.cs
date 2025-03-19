@@ -1,4 +1,4 @@
-using Ambev.DeveloperEvaluation.Application;
+ï»¿using Ambev.DeveloperEvaluation.Application;
 using Ambev.DeveloperEvaluation.Common.HealthChecks;
 using Ambev.DeveloperEvaluation.Common.Logging;
 using Ambev.DeveloperEvaluation.Common.Security;
@@ -19,7 +19,7 @@ using Serilog;
 
 namespace Ambev.DeveloperEvaluation.WebApi;
 
-public partial class Program 
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -27,20 +27,20 @@ public partial class Program
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Configuração do AppDbContext com SQL Server
+            // Configuraï¿½ï¿½o do AppDbContext com SQL Server
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            // Adição de dependências
+            // Adiï¿½ï¿½o de dependï¿½ncias
             builder.Services.AddScoped<ISaleRepository, SaleRepository>();
             builder.Services.AddScoped<ISaleService, SaleService>();
 
             // Adicionar AutoMapper
             builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-            // Adicionar serviços ao contêiner
+            // Adicionar serviï¿½os ao contï¿½iner
             builder.Services.AddControllers();
 
-            // Adicionar Autorização
+            // Adicionar Autorizaï¿½ï¿½o
             builder.Services.AddAuthorization();
 
             builder.Services.AddEndpointsApiExplorer();
@@ -48,7 +48,7 @@ public partial class Program
 
             var app = builder.Build();
 
-            // Configurar o pipeline de requisições HTTP
+            // Configurar o pipeline de requisiï¿½ï¿½es HTTP
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -56,8 +56,8 @@ public partial class Program
             }
 
             app.UseHttpsRedirection();
-            app.UseAuthentication(); // Certifique-se de que o middleware de autenticação está adicionado
-            app.UseAuthorization(); // Adicione o middleware de autorização
+            app.UseAuthentication(); // Certifique-se de que o middleware de autenticaï¿½ï¿½o estï¿½ adicionado
+            app.UseAuthorization(); // Adicione o middleware de autorizaï¿½ï¿½o
 
             app.MapControllers();
             app.Run();
@@ -108,7 +108,7 @@ public partial class Program
 
             builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 
-           
+
             app.UseMiddleware<ValidationExceptionMiddleware>();
 
             if (app.Environment.IsDevelopment())
@@ -127,7 +127,6 @@ public partial class Program
             app.MapControllers();
 
             app.Run();
-
         }
         catch (Exception ex)
         {
@@ -147,11 +146,11 @@ public partial class Program
             Log.Information("Starting up");
             var builder = WebApplication.CreateBuilder(args);
 
-            // Configurações do Servidor
+            // Configuraï¿½ï¿½es do Servidor
 
             var app = builder.Build();
 
-            // Configurações do Pipeline de Requisições
+            // Configuraï¿½ï¿½es do Pipeline de Requisiï¿½ï¿½es
 
             app.UseHttpsRedirection();
             app.UseAuthentication();

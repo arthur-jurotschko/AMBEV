@@ -10,9 +10,6 @@ namespace Ambev.DeveloperEvaluation.ORM
         {
         }
 
-        public DbSet<Sale> Sales { get; set; }
-        public DbSet<SaleItem> SaleItems { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
