@@ -1,8 +1,4 @@
-- The code must be versioned in a public Github repository and a link must be sent for evaluation once completed
-- Upload this template to your repository and start working from it
-- Read the instructions carefully and make sure all requirements are being addressed
-- The repository must provide instructions on how to configure, execute and test the project
-- Documentation and overall organization will also be taken into consideration
+
 
 ## Use Case
 **You are a developer on the DeveloperStore team. Now we need to implement the API prototypes.**
