@@ -1,5 +1,3 @@
-# Developer Evaluation Project
-
 - The code must be versioned in a public Github repository and a link must be sent for evaluation once completed
 - Upload this template to your repository and start working from it
 - Read the instructions carefully and make sure all requirements are being addressed
