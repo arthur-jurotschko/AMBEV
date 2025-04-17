@@ -1,10 +1,5 @@
 # Developer Evaluation Project
 
-`READ CAREFULLY`
-
-## Instructions
-**The test below will have up to 7 calendar days to be delivered from the date of receipt of this manual.**
-
 - The code must be versioned in a public Github repository and a link must be sent for evaluation once completed
 - Upload this template to your repository and start working from it
 - Read the instructions carefully and make sure all requirements are being addressed
