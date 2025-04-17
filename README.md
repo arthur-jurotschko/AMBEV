@@ -11,7 +11,7 @@
 
 As we work with `DDD`, to reference entities from other domains, we use the `External Identities` pattern with denormalization of entity descriptions.
 
-Therefore, you will write an API (complete CRUD) that handles sales records. The API needs to be able to inform:
+Therefore, you will write an API that handles sales records. The API needs to be able to inform:
 
 * Sale number
 * Date when the sale was made
@@ -49,33 +49,3 @@ These business rules define quantity-based discounting tiers and limitations:
 2. Restrictions:
    - Maximum limit: 20 items per product
    - No discounts allowed for quantities below 4 items
-
-## Overview
-This section provides a high-level overview of the project and the various skills and competencies it aims to assess for developer candidates. 
-
-See [Overview](/.doc/overview.md)
-
-## Tech Stack
-This section lists the key technologies used in the project, including the backend, testing, frontend, and database components. 
-
-See [Tech Stack](/.doc/tech-stack.md)
-
-## Frameworks
-This section outlines the frameworks and libraries that are leveraged in the project to enhance development productivity and maintainability. 
-
-See [Frameworks](/.doc/frameworks.md)
-
-<!-- 
-## API Structure
-This section includes links to the detailed documentation for the different API resources:
-- [API General](./docs/general-api.md)
-- [Products API](/.doc/products-api.md)
-- [Carts API](/.doc/carts-api.md)
-- [Users API](/.doc/users-api.md)
-- [Auth API](/.doc/auth-api.md)
--->
-
-## Project Structure
-This section describes the overall structure and organization of the project files and directories. 
-
-See [Project Structure](/.doc/project-structure.md)
